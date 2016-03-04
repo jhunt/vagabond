@@ -16,7 +16,7 @@ push:
 	packer push -name $(BOX) $(RECIPE)
 
 build:
-	packer build $(RECIPE)
+	jq '. + {"post-processors": [[.["post-processors"][][] | select(.type!="atlas")]]}' $(RECIPE) | packer build -
 
 clean:
 	rm -rf output-*/
