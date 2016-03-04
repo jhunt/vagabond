@@ -61,7 +61,8 @@
 		[
 			{
 				"type": "vagrant",
-				"keep_input_artifact": false
+				"keep_input_artifact": false,
+				"output": "boxen/vagabond.box"
 			},
 			{
 				"type": "atlas",
