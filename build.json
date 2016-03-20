@@ -1,4 +1,8 @@
 {
+	"variables" : {
+		"version": "{{env `VERSION`}}"
+	},
+
 	"builders": [
 		{
 			"type": "virtualbox-iso",
@@ -33,6 +37,11 @@
 			"virtualbox_version_file": ".vbox_version"
 		}
 	],
+
+	"push":{
+		"name": "jhunt/vagabond",
+		"vcs": true
+	},
 
 	"provisioners": [
 		{
@@ -71,7 +80,7 @@
 				"artifact_type": "vagrant.box",
 				"metadata": {
 					"provider":   "virtualbox",
-					"version":    "0.1.0",
+					"version":    "{{user `version`}}",
 					"created_at": "{{timestamp}}"
 				}
 			}

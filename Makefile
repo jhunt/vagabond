@@ -2,9 +2,10 @@
 # Makefile for vagabond Vagrant image
 #
 
-RECIPE := build.json
-NAME   := vagabond
-BOX    := jhunt/$(NAME)
+RECIPE  := build.json
+NAME    := vagabond
+BOX     := jhunt/$(NAME)
+VERSION := $(shell ./version.sh)
 
 default: test
 
@@ -16,7 +17,12 @@ push:
 	packer push -name $(BOX) $(RECIPE)
 
 build:
-	jq '. + {"post-processors": [[.["post-processors"][][] | select(.type!="atlas")]]}' $(RECIPE) | packer build -
+	jq '. + {"post-processors": [[.["post-processors"][][] | select(.type!="atlas")]]}' $(RECIPE) | \
+		VERSION=$(VERSION) packer build -
+
+release:
+	packer push -name $(BOX) $(RECIPE)
+	git tag v$(VERSION)
 
 clean:
 	rm -rf output-*/
