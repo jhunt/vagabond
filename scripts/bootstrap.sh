@@ -15,7 +15,8 @@ apt-get update >/dev/null
 apt-get install -y \
 	linux-image-extra-$(uname -r) \
 	docker-engine \
-	vim tmux tree
+	vim tmux tree \
+	nmap
 usermod -aG docker vagrant
 
 curl -LSs https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz | tar -C /usr/local -xz
