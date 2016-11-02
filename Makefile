@@ -26,6 +26,8 @@ release:
 
 clean:
 	rm -rf output-*/
+distclean: clean
+	rm -rf packer_cache/
 
 import:
 	vagrant box remove --force $(NAME) || true
