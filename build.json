@@ -7,13 +7,30 @@
 		{
 			"type": "virtualbox-iso",
 			"boot_command": [
-				"<esc><esc><enter><wait>",
-				"/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
-				"debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
-				"hostname=vagabond ",
-				"fb=false debconf/frontend=noninteractive ",
-				"keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false ",
-				"initrd=/install/initrd.gz -- <enter>"
+				"<enter><wait><f6><esc><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+				"<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+				"<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+				"<bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs><bs>",
+				"/install/vmlinuz<wait>",
+				" auto<wait>",
+				" console-setup/ask_detect=false<wait>",
+				" console-setup/layoutcode=us<wait>",
+				" console-setup/modelcode=pc105<wait>",
+				" debconf/frontend=noninteractive<wait>",
+				" debian-installer=en_US<wait>",
+				" fb=false<wait>",
+				" initrd=/install/initrd.gz<wait>",
+				" kbd-chooser/method=us<wait>",
+				" keyboard-configuration/layout=USA<wait>",
+				" keyboard-configuration/variant=USA<wait>",
+				" locale=en_US<wait>",
+				" netcfg/get_domain=vm<wait>",
+				" netcfg/get_hostname=vagrant<wait>",
+				" grub-installer/bootdev=/dev/sda<wait>",
+				" noapic<wait>",
+				" preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg",
+				" -- <wait>",
+				"<enter><wait>"
 			],
 
 			"headless": true,
@@ -21,8 +38,8 @@
 
 			"disk_size": 20480,
 			"guest_os_type": "Ubuntu_64",
-			"iso_url": "http://releases.ubuntu.com/vivid/ubuntu-15.04-server-amd64.iso",
-			"iso_checksum": "6501c8545374665823384bbb6235f865108f56d8a30bbf69dd18df73c14ccb84",
+			"iso_url": "http://releases.ubuntu.com/xenial/ubuntu-16.04.1-server-amd64.iso",
+			"iso_checksum": "29a8b9009509b39d542ecb229787cdf48f05e739a932289de9e9858d7c487c80",
 			"iso_checksum_type": "sha256",
 
 			"ssh_username": "vagrant",
