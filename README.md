@@ -31,13 +31,10 @@ It includes:
   - tmux
   - tree
   - nmap
-  - Golang 1.7.3 with the following utilities:
-    - godep
-    - golint
-    - ginkgo
-    - gomega
+  - Golang 1.7.3 with `godep`, `golint` and Ginkog/Gomega.
 
-It also includes sane default configuration for `vim`, and `tmux.
+It also includes sane default configuration for both `vim`, and
+`tmux`.
 
 Using Vagabond
 --------------
