@@ -1,6 +1,6 @@
 #!/bin/bash
+set -e
 
-set -ex
 echo "Installing Software"
 apt-key adv \
 	--keyserver hkp://p80.pool.sks-keyservers.net:80 \

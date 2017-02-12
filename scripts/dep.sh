@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 #
 # Setup the the box. This runs as root
 
