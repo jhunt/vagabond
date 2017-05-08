@@ -31,7 +31,7 @@ It includes:
   - tmux
   - tree
   - nmap
-  - Golang 1.7.3 with `godep`, `golint` and Ginkog/Gomega.
+  - Golang 1.8.1 with `godep`, `golint` and Ginkgo/Gomega.
 
 It also includes sane default configuration for both `vim`, and
 `tmux`.
