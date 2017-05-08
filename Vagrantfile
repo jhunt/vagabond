@@ -8,4 +8,8 @@ EOF
 Vagrant.configure('2') do |config|
   config.vm.box = 'vagabond'
   config.vm.provision "shell", privileged: false, inline: $setup
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = "vdev"
+  end
 end
