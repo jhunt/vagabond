@@ -11,23 +11,18 @@ default: test
 
 test:
 	@cat $(RECIPE) | jq . >/dev/null
-	@packer validate $(RECIPE)
-
-# requires Enterprise something-something; not worth it.
-#push:
-#	packer push -name $(BOX) $(RECIPE)
+	@VERSION=$(VERSION) TOKEN=$(TOKEN) packer validate $(RECIPE)
 
 build:
-	jq '. + {"post-processors": [[.["post-processors"][][] | select(.type!="atlas")]]}' $(RECIPE) | \
-		VERSION=$(VERSION) packer build -
+	VERSION=$(VERSION) TOKEN=$(TOKEN) packer build $(RECIPE)
 
-# requires Enterprise something-something; not worth it.
-#release:
-#	packer push -name $(BOX) $(RECIPE)
-#	git tag v$(VERSION)
+release:
+	TOKEN=$(TOKEN) packer push -name $(BOX) $(RECIPE)
+	git tag v$(VERSION)
 
 clean:
 	rm -rf output-*/
+
 distclean: clean
 	rm -rf packer_cache/
 

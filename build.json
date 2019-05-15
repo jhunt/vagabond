@@ -1,6 +1,7 @@
 {
 	"variables" : {
-		"version": "{{env `VERSION`}}"
+		"version": "{{env `VERSION`}}",
+		"token": "{{env `TOKEN`}}"
 	},
 
 	"builders": [
@@ -91,15 +92,10 @@
 				"output": "boxen/vagabond.box"
 			},
 			{
-				"type": "atlas",
-				"only": ["virtualbox-iso"],
-				"artifact": "jhunt/vagabond",
-				"artifact_type": "vagrant.box",
-				"metadata": {
-					"provider":   "virtualbox",
-					"version":    "{{user `version`}}",
-					"created_at": "{{timestamp}}"
-				}
+				"type": "vagrant-cloud",
+				"box_tag": "jhunt/vagabond",
+				"access_token": "{{user `token`}}",
+				"version": "{{user `version`}}"
 			}
 		]
 	]
