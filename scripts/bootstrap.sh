@@ -18,7 +18,7 @@ apt-get install -y \
 	nmap
 usermod -aG docker vagrant
 
-curl -LSs https://storage.googleapis.com/golang/go1.8.1.linux-amd64.tar.gz | tar -C /usr/local -xz
+curl -LSs https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz | tar -C /usr/local -xz
 cat > /home/vagrant/.bash_aliases <<'EOF'
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
