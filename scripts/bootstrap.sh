@@ -13,7 +13,6 @@ EOF
 
 apt-get update >/dev/null
 apt-get install -y \
-	linux-image-extra-$(uname -r) \
 	docker-engine \
 	vim tmux tree \
 	nmap
